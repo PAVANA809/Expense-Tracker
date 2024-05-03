@@ -6,7 +6,7 @@ const Header = () => {
   const { isLoggedIn } = useAppContext();
 
   return (
-    <div className="bg-blue-800 py-6">
+    <div className="bg-blue-800 px-5 py-6 md:px-0">
       <div className="container mx-auto flex justify-between">
         <span className="text-3xl text-white font-bold tracking-tight">
           <Link to="/">Expense Tracker</Link>

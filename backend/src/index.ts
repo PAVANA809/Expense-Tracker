@@ -2,8 +2,11 @@ import express, {Request,Response} from 'express';
 import cors from 'cors';
 import "dotenv/config";
 import mongoose from 'mongoose';
+
 import userRoutes from './routes/uses';
 import authRoutes from './routes/auth';
+import expenseRoutes from './routes/expenses';
+
 import cookieParser from "cookie-parser";
 import path from 'path';
 
@@ -25,7 +28,8 @@ app.use(
 app.use(express.static(path.join(__dirname, "../../frontend/dist")))
 
 app.use("/api/auth", authRoutes);
-app.use("/api/users", userRoutes)
+app.use("/api/users", userRoutes);
+app.use("/api/expense", expenseRoutes);
 
 app.listen(3000, () => {
     console.log("Server running on port 3000");
