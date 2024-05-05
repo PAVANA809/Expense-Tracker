@@ -4,7 +4,7 @@ import NewEntryForm from "../components/NewEntryForm";
 const Dashboard = () => {
   const [isNewEntry, setIsNewEntry] = useState(false);
     return (
-      <div className="flex flex-col p-5 md:p-0">
+      <div className="flex flex-col"> 
         <button
           className={`items-center border rounded-lg self-end text-white p-3 font-bold ${
             isNewEntry
