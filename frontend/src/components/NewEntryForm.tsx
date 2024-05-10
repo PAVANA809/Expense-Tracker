@@ -5,10 +5,12 @@ import { useAppContext } from "../contexts/AppContext";
 import React from "react";
 
 export type ExpenseFormData = {
+  category: string;
   type: string;
   amount: number;
   date: Date;
   message: string;
+  _id: string;
 };
 
 type SetIsNewEntryFunction = (newValue: boolean) => void;
@@ -42,6 +44,17 @@ const NewEntryForm: React.FC<NewEntryFormProps> = ({setIsNewEntry}) => {
 
   return (
     <form className="flex flex-col gap-5" onSubmit={onSubmit}>
+      <label className="text-gray-700 text-sm font-bold flex-1">
+        Category
+        <input
+          type="text"
+          className="border rounded w-full py-1 px-2 font-normal"
+          {...register("category", { required: "This field is required" })}
+        />
+        {errors.category && (
+          <span className="text-red-500">{errors.category.message}</span>
+        )}
+      </label>
       <label className="text-gray-700 text-sm font-bold flex-1">
         Type
         <input

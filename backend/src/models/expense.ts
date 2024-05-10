@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 export type ExpenseType = {
+  category: string,
   type: string,
   amount: number,
   date: Date,
@@ -8,6 +9,7 @@ export type ExpenseType = {
 }
 
 const expenseSchema = new mongoose.Schema({
+  category: { type: String, required: true },
   type: { type: String, required: true },
   amount: { type: Number },
   date: { type: Date },

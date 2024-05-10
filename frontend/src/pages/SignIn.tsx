@@ -38,7 +38,7 @@ const SignIn = () => {
   });
 
   return (
-    <form className="flex flex-col gap-5" onSubmit={onSubmit}>
+    <form className="flex flex-col gap-5 px-5 md:px-5" onSubmit={onSubmit}>
       <h2 className="text-3xl font-bold">Sign In</h2>
       <label className="text-gray-700 text-sm font-bold flex-1">
         Email
