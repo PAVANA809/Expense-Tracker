@@ -77,3 +77,21 @@ export const addExpense = async (formData: ExpenseFormData) => {
     throw new Error(responseBody.message);
   }
 };
+
+export const Search = async () => {
+  const response = await fetch(`${API_BASE_URL}/api/expense/search`,{
+    credentials: "include",
+    method:"GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const responseBody = await response.json();
+
+  if (!response.ok){
+    throw new Error(responseBody.message)
+  }
+  
+  return responseBody;
+};

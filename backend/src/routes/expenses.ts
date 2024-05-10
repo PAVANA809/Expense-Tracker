@@ -67,6 +67,8 @@ router.get("/search", verifyToken, async (req: Request, res: Response) => {
     const endOfDay = new Date();
     endOfDay.setHours(23, 59, 59, 999);
 
+    // startDate format = 2024-04-30
+
     const startDate = req.query.startDate
       ? new Date(`${req.query.startDate}T00:00:00.000Z`)
       : startOfMonth;

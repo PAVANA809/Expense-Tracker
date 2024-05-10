@@ -10,6 +10,7 @@ export type ExpenseFormData = {
   amount: number;
   date: Date;
   message: string;
+  _id: string;
 };
 
 type SetIsNewEntryFunction = (newValue: boolean) => void;

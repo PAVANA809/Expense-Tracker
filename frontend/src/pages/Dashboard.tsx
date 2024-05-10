@@ -1,10 +1,11 @@
 import { useState } from "react";
 import NewEntryForm from "../components/NewEntryForm";
+import ExpenseList from "../components/ExpenseList";
 
 const Dashboard = () => {
   const [isNewEntry, setIsNewEntry] = useState(false);
     return (
-      <div className="flex flex-col"> 
+      <div className="flex flex-col px-5 md:px-0"> 
         <button
           className={`items-center border rounded-lg self-end text-white p-3 font-bold ${
             isNewEntry
@@ -17,6 +18,7 @@ const Dashboard = () => {
         </button>
 
         {isNewEntry && <NewEntryForm setIsNewEntry={setIsNewEntry} />}
+        <ExpenseList/>
       </div>
     );
 }
