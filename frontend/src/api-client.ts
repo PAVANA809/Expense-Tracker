@@ -78,8 +78,23 @@ export const addExpense = async (formData: ExpenseFormData) => {
   }
 };
 
-export const Search = async () => {
-  const response = await fetch(`${API_BASE_URL}/api/expense/search`,{
+
+export type QueryParameters = {
+  page? : string;
+  startDate? : string;
+  endDate? : string;
+}
+
+
+export const Search = async (queryParameters:QueryParameters) => {
+  console.log(queryParameters)
+  const queryParams = new URLSearchParams();
+
+  queryParams.append("page", queryParameters.page || "")
+  queryParams.append("startDate", queryParameters.startDate || "")
+  queryParams.append("endDate", queryParameters.endDate || "")
+
+  const response = await fetch(`${API_BASE_URL}/api/expense/search?${queryParams}`,{
     credentials: "include",
     method:"GET",
     headers: {
