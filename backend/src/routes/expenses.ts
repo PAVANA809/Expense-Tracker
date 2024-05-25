@@ -62,10 +62,16 @@ router.get("/search", verifyToken, async (req: Request, res: Response) => {
 
     const startOfMonth = new Date();
     startOfMonth.setDate(1);
-    startOfMonth.setHours(0, 0, 0, 0);
+    startOfMonth.setUTCHours(0, 0, 0, 0);
 
     const endOfDay = new Date();
-    endOfDay.setHours(23, 59, 59, 999);
+    endOfDay.setUTCHours(23, 59, 59, 999);
+
+    console.log(startOfMonth)
+    console.log(endOfDay)
+
+    console.log(startOfMonth.toLocaleString())
+    console.log(endOfDay.toLocaleString())
 
     // startDate format = 2024-04-30
 
@@ -77,6 +83,13 @@ router.get("/search", verifyToken, async (req: Request, res: Response) => {
       ? new Date(`${req.query.endDate}T23:59:59.999Z`)
       : endOfDay;
     
+
+    console.log(startDate)
+    console.log(endDate)
+
+    console.log(startDate.toLocaleString())
+    console.log(endDate.toLocaleString())
+
     const result = await Expenses.aggregate([
       {
         $match: {
